@@ -1,6 +1,6 @@
-# Serum Plugin
+# Serum Plugins Official
 
-A Claude Code plugin for serum operations.
+Official Serum plugins for Claude Code including validation, linting and development tools.
 
 ## Installation
 
@@ -11,7 +11,7 @@ A Claude Code plugin for serum operations.
 /plugin marketplace add leobrival/serum-plugin
 
 # Install the plugin
-/plugin install serum-plugin@serum-plugins
+/plugin install serum-plugin@serum-plugins-official
 ```
 
 ### From local path (development)
@@ -21,7 +21,7 @@ A Claude Code plugin for serum operations.
 git clone https://github.com/leobrival/serum-plugin.git
 
 # Run Claude Code with the plugin loaded
-claude --plugin-dir ./serum-plugin
+claude --plugin-dir ./serum-plugin/plugins/serum-plugin
 ```
 
 ### Verify installation
@@ -30,13 +30,48 @@ claude --plugin-dir ./serum-plugin
 /plugin list
 ```
 
+## Available Plugins
+
+### serum-plugin
+
+Serum plugin for Claude Code with validation, linting and type checking.
+
+**Features:**
+
+- Command validation before execution
+- Lint check after file modifications
+- Type check for TypeScript files
+
+## File Structure
+
+```
+serum-plugin/
+├── .claude-plugin/
+│   └── marketplace.json
+├── plugins/
+│   └── serum-plugin/
+│       ├── .claude-plugin/
+│       │   └── plugin.json
+│       ├── commands/
+│       │   └── crawler.md
+│       ├── agents/
+│       │   └── serum-agent.md
+│       ├── hooks/
+│       │   └── hooks.json
+│       └── scripts/
+│           ├── validate-commands.js
+│           ├── lint-check.js
+│           └── type-check.js
+└── README.md
+```
+
 ## Components
 
 ### Commands
 
 | Command | Description |
 |---------|-------------|
-| `/serum` | Main serum command for plugin operations |
+| `/crawler` | Web crawler command |
 
 ### Agents
 
@@ -44,90 +79,29 @@ claude --plugin-dir ./serum-plugin
 |-------|-------------|
 | `serum-agent` | Specialized agent for serum plugin operations |
 
-### Skills
-
-| Skill | Description |
-|-------|-------------|
-| `serum-core` | Core serum skill, auto-invoked for serum-related tasks |
-
 ### Hooks
 
 | Event | Description |
 |-------|-------------|
 | `PreToolUse` | Validates commands before execution |
-| `PostToolUse` | Processes files after creation |
-
-## Usage
-
-### Basic Command
-
-```bash
-/serum <action>
-```
-
-### Available Actions
-
-- `init` - Initialize serum configuration
-- `run` - Execute serum workflow
-- `status` - Check serum status
-
-### Using the Agent
-
-The serum-agent is automatically available for Task tool invocations:
-
-```
-Use the serum-agent to help with serum configuration
-```
-
-## Configuration
-
-Create a `serum.config.json` in your project root:
-
-```json
-{
-  "version": "1.0",
-  "settings": {},
-  "workflows": []
-}
-```
-
-## File Structure
-
-```
-serum-plugin/
-├── .claude-plugin/
-│   └── plugin.json
-├── commands/
-│   └── serum.md
-├── agents/
-│   └── serum-agent.md
-├── skills/
-│   └── serum-core/
-│       └── SKILL.md
-├── hooks/
-│   ├── hooks.json
-│   ├── pre-tool-handler.js
-│   └── post-tool-handler.js
-└── README.md
-```
+| `PostToolUse` | Lint and type check after file modifications |
 
 ## Development
 
-### Modifying Commands
+### Adding New Plugins
 
-Edit `commands/serum.md` to add or modify command behavior.
+Create a new directory under `plugins/` with the following structure:
 
-### Extending the Agent
+```
+plugins/my-new-plugin/
+├── .claude-plugin/
+│   └── plugin.json
+├── commands/
+├── agents/
+└── README.md
+```
 
-Edit `agents/serum-agent.md` to update agent capabilities.
-
-### Adding Skills
-
-Create new skill directories under `skills/` with a `SKILL.md` file.
-
-### Customizing Hooks
-
-Modify the handler scripts in `hooks/` to add custom validation or processing.
+Then add the plugin entry to `.claude-plugin/marketplace.json`.
 
 ## License
 

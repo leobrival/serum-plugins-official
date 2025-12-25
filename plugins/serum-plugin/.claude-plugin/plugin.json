@@ -1,0 +1,8 @@
+{
+	"name": "serum-plugin",
+	"description": "Serum plugin for Claude Code with validation, linting and type checking",
+	"version": "1.0.0",
+	"author": {
+		"name": "Leo Brival"
+	}
+}

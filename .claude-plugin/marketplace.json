@@ -1,20 +1,22 @@
 {
 	"$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-	"name": "serum-plugins",
+	"name": "serum-plugins-official",
 	"version": "1.0.0",
-	"description": "Serum plugin marketplace",
+	"description": "Official Serum plugins for Claude Code including validation, linting and development tools",
 	"owner": {
-		"name": "Leo Brival"
+		"name": "Leo Brival",
+		"email": "leo.brival@gmail.com"
 	},
 	"plugins": [
 		{
 			"name": "serum-plugin",
-			"description": "Serum plugin for Claude Code",
+			"description": "Serum plugin for Claude Code with validation, linting and type checking",
 			"version": "1.0.0",
 			"author": {
-				"name": "Leo Brival"
+				"name": "Leo Brival",
+				"email": "leo.brival@gmail.com"
 			},
-			"source": "./",
+			"source": "./plugins/serum-plugin",
 			"category": "development"
 		}
 	]
