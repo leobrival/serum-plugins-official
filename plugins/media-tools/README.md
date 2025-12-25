@@ -1,24 +1,22 @@
 # Media Tools Plugin
 
-Image and video manipulation tools using ImageMagick and FFmpeg.
+Smart image and video processing with automatic batch detection.
 
 ## Features
 
-- Resize and crop images with aspect ratio control
-- Compress images to modern formats (WebP, AVIF)
-- Batch process multiple images
-- Compress and convert videos
-- Create optimized GIFs from videos
+- **Auto-detection**: Single file or batch processing
+- **Smart defaults**: Optimal settings for each use case
+- **Modern formats**: WebP, AVIF, VP9/WebM support
+- **Flexible output**: Same folder, subfolder, or custom path
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `/image-resize` | Resize, crop, and convert images |
-| `/image-compress` | Compress images without resizing |
-| `/image-batch` | Batch process multiple images |
-| `/video-compress` | Compress and convert videos |
-| `/video-to-gif` | Convert video clips to GIFs |
+| `/media` | Universal processor - auto-detects images or videos |
+| `/image` | Image processing - resize, compress, convert |
+| `/video` | Video processing - compress, convert, trim |
+| `/gif` | Create optimized GIFs from videos or images |
 
 ## Quick Start
 
@@ -32,80 +30,145 @@ Image and video manipulation tools using ImageMagick and FFmpeg.
 
 ## Usage Examples
 
-### Resize image to 1920x1080 WebP
+### Process any media file or folder
 
 ```bash
-/image-resize photo.jpg --Resolution 1920 --Ratio 16:9 --Format webp --Quality 85
+# Auto-detect and process
+/media ./downloads/
+
+# Single file
+/media photo.jpg
+
+# Specific format
+/media video.mov --Format mp4
 ```
 
-### Compress image to WebP
+### Image processing
 
 ```bash
-/image-compress photo.jpg --Format webp --Quality 75
+# Resize and convert
+/image photo.jpg --Resolution 1920 --Ratio 16:9 --Format webp
+
+# Compress only
+/image photo.jpg --Quality 75
+
+# Batch process folder
+/image ./photos/ --Format webp --Output subfolder
+
+# Instagram ready (square)
+/image ./uploads/ --Resolution 1280 --Ratio 1:1
 ```
 
-### Batch process folder
+### Video processing
 
 ```bash
-/image-batch ./photos --Resolution 1280 --Ratio 1:1 --Format webp
+# Compress video
+/video video.mov --Resolution 1080p --Format mp4
+
+# Convert for web
+/video video.mp4 --Format webm --Quality web
+
+# Trim clip
+/video video.mp4 --Trim custom
+# Then: start=00:01:30, duration=00:00:30
+
+# Remove audio
+/video video.mp4 --Audio remove
 ```
 
-### Compress video to 1080p
+### Create GIFs
 
 ```bash
-/video-compress video.mov --Resolution 1080p --Format mp4 --Quality medium
+# Simple conversion
+/gif video.mp4
+
+# First 5 seconds
+/gif video.mp4 --Duration 5 --Width 480
+
+# High quality
+/gif video.mp4 --Width 800 --FPS 24 --Optimize quality
+
+# From image sequence
+/gif ./frames/ --FPS 24
 ```
 
-### Create GIF from video
+## Argument Reference
 
-```bash
-/video-to-gif video.mp4 --Width 480 --FPS 15 --Duration 5
-```
-
-## Argument Options
-
-### Image Commands
+### /media
 
 | Argument | Options | Default |
 |----------|---------|---------|
-| Resolution | 3840, 2560, 1920, 1280, 800, 640 | 1920 |
-| Ratio | 16:9, 9:16, 3:2, 1:1, 4:5, 4:3, 21:9 | 16:9 |
-| Format | webp, jpg, png, avif | webp |
+| Action | auto, compress, resize, convert, info | auto |
 | Quality | 95, 85, 75, 65, 55 | 85 |
+| Format | auto, webp, jpg, png, mp4, webm, gif | auto |
+| Output | same, subfolder, custom | same |
 
-### Video Commands
+### /image
 
 | Argument | Options | Default |
 |----------|---------|---------|
-| Resolution | 4K, 1440p, 1080p, 720p, 480p | 1080p |
-| Format | mp4, webm, mov, gif | mp4 |
+| Resolution | original, 3840, 2560, 1920, 1280, 800, 640 | original |
+| Ratio | original, 16:9, 9:16, 3:2, 1:1, 4:5, 4:3, 21:9 | original |
+| Format | original, webp, jpg, png, avif | webp |
+| Quality | 95, 85, 75, 65, 55, 45 | 85 |
+| Output | same, subfolder, custom | same |
+
+### /video
+
+| Argument | Options | Default |
+|----------|---------|---------|
+| Resolution | original, 4K, 1440p, 1080p, 720p, 480p | original |
+| Format | original, mp4, webm, mov, gif | mp4 |
 | Quality | high, medium, low, web | medium |
 | FPS | original, 60, 30, 24, 15 | original |
+| Trim | full, custom | full |
+| Audio | keep, remove, extract | keep |
+| Output | same, subfolder, custom | same |
+
+### /gif
+
+| Argument | Options | Default |
+|----------|---------|---------|
+| Width | 800, 640, 480, 320, 240 | 480 |
+| FPS | 30, 24, 20, 15, 12, 10 | 15 |
+| Duration | full, 10, 5, 3, custom | full |
+| Start | 0, custom | 0 |
+| Loop | infinite, once, custom | infinite |
+| Optimize | quality, balanced, size | balanced |
+
+## Presets
+
+### Social Media Images
+
+| Platform | Resolution | Ratio | Format |
+|----------|------------|-------|--------|
+| Instagram Post | 1080 | 1:1 | jpg |
+| Instagram Story | 1080 | 9:16 | jpg |
+| Twitter/X | 1280 | 16:9 | jpg |
+| LinkedIn | 1200 | 1.91:1 | jpg |
+| OG/Share | 1200 | 1.91:1 | jpg |
+
+### Social Media Videos
+
+| Platform | Resolution | Format | Quality |
+|----------|------------|--------|---------|
+| YouTube | 1080p | mp4 | high |
+| Instagram Reel | 1080p | mp4 | medium |
+| TikTok | 1080p | mp4 | medium |
+| Twitter/X | 720p | mp4 | medium |
 
 ## Requirements
 
 - **ImageMagick 7+**: `brew install imagemagick`
 - **FFmpeg**: `brew install ffmpeg`
+- **gifsicle** (optional): `brew install gifsicle`
 
-## Format Recommendations
+## How It Works
 
-### Images
-
-| Use Case | Format | Quality |
-|----------|--------|---------|
-| Web general | WebP | 85 |
-| Maximum compression | AVIF | 75 |
-| Universal compatibility | JPEG | 85 |
-| Transparency needed | PNG | - |
-
-### Videos
-
-| Use Case | Format | Quality |
-|----------|--------|---------|
-| Web streaming | MP4 (H.264) | medium |
-| Modern browsers | WebM (VP9) | medium |
-| Social media | MP4 | web |
-| Archival | MP4 | high |
+1. **Input analysis**: Detects file type (image/video) and count (single/batch)
+2. **Preview**: Shows what will be processed and estimated output
+3. **Processing**: Applies transformations with progress reporting
+4. **Summary**: Reports compression ratios and output locations
 
 ## License
 

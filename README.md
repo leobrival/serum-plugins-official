@@ -68,28 +68,40 @@ Enhanced hookify with **24 pre-configured security rules** - uses Bun runtime, n
 
 ### media-tools
 
-Image and video manipulation tools using **ImageMagick** and **FFmpeg**.
+Smart image and video processing with **auto-detection** of single files or batch operations.
 
 **Features:**
 
-- Resize and crop images with aspect ratio control
-- Compress images to modern formats (WebP, AVIF)
-- Batch process multiple images
-- Compress and convert videos
-- Create optimized GIFs from videos
+- Auto-detects single file or batch (folder/pattern)
+- Resize, crop, compress images with aspect ratio control
+- Modern formats support (WebP, AVIF, VP9/WebM)
+- Video compression, conversion, and trimming
+- Optimized GIF creation from videos or image sequences
 
 **Commands:**
 
-- `/image-resize` - Resize, crop, and convert images
-- `/image-compress` - Compress images without resizing
-- `/image-batch` - Batch process multiple images
-- `/video-compress` - Compress and convert videos
-- `/video-to-gif` - Convert video clips to GIFs
+- `/media` - Universal processor (auto-detects image/video)
+- `/image` - Smart image processing (resize, compress, convert)
+- `/video` - Smart video processing (compress, convert, trim)
+- `/gif` - Create optimized GIFs
 
-**Quick example:**
+**Examples:**
 
 ```bash
-/image-resize photo.jpg --Resolution 1920 --Ratio 16:9 --Format webp --Quality 85
+# Process any media (auto-detect)
+/media ./downloads/
+
+# Single image
+/image photo.jpg --Resolution 1920 --Ratio 16:9 --Format webp
+
+# Batch images
+/image ./photos/ --Format webp --Output subfolder
+
+# Compress video
+/video video.mov --Resolution 1080p --Format mp4
+
+# Create GIF
+/gif video.mp4 --Duration 5 --Width 480
 ```
 
 ## File Structure
@@ -118,11 +130,10 @@ serum-plugins-official/
 │       ├── .claude-plugin/
 │       │   └── plugin.json
 │       ├── commands/
-│       │   ├── image-resize.md
-│       │   ├── image-compress.md
-│       │   ├── image-batch.md
-│       │   ├── video-compress.md
-│       │   └── video-to-gif.md
+│       │   ├── media.md      # Universal processor
+│       │   ├── image.md      # Smart image processing
+│       │   ├── video.md      # Smart video processing
+│       │   └── gif.md        # GIF creation
 │       └── README.md
 └── README.md
 ```
