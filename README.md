@@ -1,6 +1,6 @@
 # Serum Plugins Official
 
-Official Serum plugins for Claude Code - modular tools for crawling, security, and development workflows.
+Official Serum plugins for Claude Code - modular tools for crawling and security.
 
 ## Installation
 
@@ -16,10 +16,7 @@ Official Serum plugins for Claude Code - modular tools for crawling, security, a
 # Install the crawler plugin
 /plugin install crawler@serum-plugins-official
 
-# Install security hooks
-/plugin install security-hooks@serum-plugins-official
-
-# Install hookify enhanced (24 security rules)
+# Install hookify (24 security rules, Bun runtime)
 /plugin install hookify@serum-plugins-official
 ```
 
@@ -48,19 +45,9 @@ High-performance web crawler for discovering and mapping website structure.
 /crawler https://example.com
 ```
 
-### security-hooks
-
-Security validation hooks with command validation, linting and type checking.
-
-**Features:**
-
-- PreToolUse: Blocks dangerous commands (rm -rf, sudo, etc.)
-- PostToolUse: Automatic Biome linting on JS/TS files
-- PostToolUse: TypeScript type checking
-
 ### hookify
 
-Enhanced hookify with **24 pre-configured security rules** - works out of the box.
+Enhanced hookify with **24 pre-configured security rules** - uses Bun runtime, no Python required.
 
 **Features:**
 
@@ -68,6 +55,7 @@ Enhanced hookify with **24 pre-configured security rules** - works out of the bo
 - 4 File editing rules (secrets detection, debug code, TODOs)
 - Simple markdown format for custom rules
 - Commands: `/hookify`, `/hookify:list`, `/hookify:configure`
+- **Bun runtime** - Fast TypeScript execution, no dependencies
 
 **Quick example:**
 
@@ -89,22 +77,21 @@ serum-plugins-official/
 │   │   │   └── crawler.md
 │   │   ├── scripts/
 │   │   └── README.md
-│   ├── security-hooks/
-│   │   ├── .claude-plugin/
-│   │   │   └── plugin.json
-│   │   ├── hooks/
-│   │   │   └── hooks.json
-│   │   ├── scripts/
-│   │   │   ├── validate-commands.js
-│   │   │   ├── lint-check.js
-│   │   │   └── type-check.js
-│   │   └── README.md
 │   └── hookify/
 │       ├── .claude-plugin/
 │       │   └── plugin.json
+│       ├── core/              # TypeScript rule engine
+│       │   ├── types.ts
+│       │   ├── config-loader.ts
+│       │   └── rule-engine.ts
+│       ├── hooks/             # Bun hooks
+│       │   ├── hooks.json
+│       │   ├── pretooluse.ts
+│       │   ├── posttooluse.ts
+│       │   ├── stop.ts
+│       │   └── userpromptsubmit.ts
 │       ├── commands/
-│       ├── hooks/
-│       ├── rules/           # 24 pre-configured security rules
+│       ├── rules/             # 24 pre-configured security rules
 │       └── README.md
 └── README.md
 ```

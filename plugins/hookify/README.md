@@ -194,10 +194,37 @@ Message shown when ALL conditions match.
 
 **Stop events:** `transcript`, `reason`
 
+## Technical Details
+
+### Runtime
+
+Uses **Bun** instead of Python:
+- Faster startup time (~10ms vs ~100ms)
+- No Python installation required
+- TypeScript support out of the box
+
+### File Structure
+
+```
+hookify/
+├── core/
+│   ├── types.ts            # TypeScript interfaces
+│   ├── config-loader.ts    # Rule file parser
+│   └── rule-engine.ts      # Rule evaluator
+├── hooks/
+│   ├── hooks.json          # Hook configuration (uses bun)
+│   ├── pretooluse.ts
+│   ├── posttooluse.ts
+│   ├── stop.ts
+│   └── userpromptsubmit.ts
+├── rules/                  # 24 pre-configured rules
+└── commands/               # /hookify commands
+```
+
 ## Requirements
 
-- Python 3.7+ (uses stdlib only)
+- Bun (bundled with Claude Code)
 
 ## License
 
-MIT - Based on hookify by Anthropic, enhanced with comprehensive security rules.
+MIT - Based on hookify by Anthropic, enhanced with Bun runtime and comprehensive security rules.

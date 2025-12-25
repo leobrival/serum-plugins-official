@@ -1,1 +1,0 @@
-/Users/leobrival/.claude/scripts/lint-check.js

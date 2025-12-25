@@ -20,19 +20,8 @@
 			"category": "productivity"
 		},
 		{
-			"name": "security-hooks",
-			"description": "Security validation hooks with command validation, linting and type checking",
-			"version": "1.0.0",
-			"author": {
-				"name": "Leo Brival",
-				"email": "leo.brival@gmail.com"
-			},
-			"source": "./plugins/security-hooks",
-			"category": "security"
-		},
-		{
 			"name": "hookify",
-			"description": "Enhanced hookify with 24 pre-configured security rules. Block dangerous commands, detect secrets, enforce code quality - all via simple markdown files.",
+			"description": "Enhanced hookify with 24 security rules - Bun runtime, no Python required.",
 			"version": "1.0.0",
 			"author": {
 				"name": "Leo Brival",
