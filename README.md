@@ -7,20 +7,27 @@ A Claude Code plugin for serum operations.
 ### From GitHub (recommended)
 
 ```bash
-claude plugin install https://github.com/leobrival/serum-plugin
+# Add the marketplace
+/plugin marketplace add leobrival/serum-plugin
+
+# Install the plugin
+/plugin install serum-plugin@serum-plugins
 ```
 
-### From local path
+### From local path (development)
 
 ```bash
+# Clone the repository
 git clone https://github.com/leobrival/serum-plugin.git
-claude plugin install ./serum-plugin
+
+# Run Claude Code with the plugin loaded
+claude --plugin-dir ./serum-plugin
 ```
 
 ### Verify installation
 
 ```bash
-claude plugin list
+/plugin list
 ```
 
 ## Components

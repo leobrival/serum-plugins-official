@@ -1,0 +1,13 @@
+{
+	"name": "serum-plugins",
+	"owner": {
+		"name": "Leo Brival"
+	},
+	"plugins": [
+		{
+			"name": "serum-plugin",
+			"source": "./",
+			"description": "Serum plugin for Claude Code"
+		}
+	]
+}
