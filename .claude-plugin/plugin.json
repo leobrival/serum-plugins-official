@@ -2,9 +2,7 @@
 	"name": "serum-plugin",
 	"version": "1.0.0",
 	"description": "Serum plugin for Claude Code",
-	"author": "Leo Brival",
-	"license": "MIT",
-	"commands": "./commands/",
-	"agents": "./agents/",
-	"hooks": "./hooks/hooks.json"
+	"author": {
+		"name": "Leo Brival"
+	}
 }
