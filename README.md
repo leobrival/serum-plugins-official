@@ -18,6 +18,9 @@ Official Serum plugins for Claude Code - modular tools for crawling, security, a
 
 # Install security hooks
 /plugin install security-hooks@serum-plugins-official
+
+# Install hookify enhanced (24 security rules)
+/plugin install hookify@serum-plugins-official
 ```
 
 ### Verify installation
@@ -55,6 +58,23 @@ Security validation hooks with command validation, linting and type checking.
 - PostToolUse: Automatic Biome linting on JS/TS files
 - PostToolUse: TypeScript type checking
 
+### hookify
+
+Enhanced hookify with **24 pre-configured security rules** - works out of the box.
+
+**Features:**
+
+- 20 Bash security rules (block/warn dangerous commands)
+- 4 File editing rules (secrets detection, debug code, TODOs)
+- Simple markdown format for custom rules
+- Commands: `/hookify`, `/hookify:list`, `/hookify:configure`
+
+**Quick example:**
+
+```bash
+/hookify Block npm publish commands
+```
+
 ## File Structure
 
 ```
@@ -69,15 +89,22 @@ serum-plugins-official/
 │   │   │   └── crawler.md
 │   │   ├── scripts/
 │   │   └── README.md
-│   └── security-hooks/
+│   ├── security-hooks/
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── hooks/
+│   │   │   └── hooks.json
+│   │   ├── scripts/
+│   │   │   ├── validate-commands.js
+│   │   │   ├── lint-check.js
+│   │   │   └── type-check.js
+│   │   └── README.md
+│   └── hookify/
 │       ├── .claude-plugin/
 │       │   └── plugin.json
+│       ├── commands/
 │       ├── hooks/
-│       │   └── hooks.json
-│       ├── scripts/
-│       │   ├── validate-commands.js
-│       │   ├── lint-check.js
-│       │   └── type-check.js
+│       ├── rules/           # 24 pre-configured security rules
 │       └── README.md
 └── README.md
 ```
