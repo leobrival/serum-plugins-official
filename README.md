@@ -1,27 +1,23 @@
 # Serum Plugins Official
 
-Official Serum plugins for Claude Code including validation, linting and development tools.
+Official Serum plugins for Claude Code - modular tools for crawling, security, and development workflows.
 
 ## Installation
 
-### From GitHub (recommended)
+### Add the marketplace
 
 ```bash
-# Add the marketplace
 /plugin marketplace add leobrival/serum-plugin
-
-# Install the plugin
-/plugin install serum-plugin@serum-plugins-official
 ```
 
-### From local path (development)
+### Install plugins
 
 ```bash
-# Clone the repository
-git clone https://github.com/leobrival/serum-plugin.git
+# Install the crawler plugin
+/plugin install crawler@serum-plugins-official
 
-# Run Claude Code with the plugin loaded
-claude --plugin-dir ./serum-plugin/plugins/serum-plugin
+# Install security hooks
+/plugin install security-hooks@serum-plugins-official
 ```
 
 ### Verify installation
@@ -32,15 +28,32 @@ claude --plugin-dir ./serum-plugin/plugins/serum-plugin
 
 ## Available Plugins
 
-### serum-plugin
+### crawler
 
-Serum plugin for Claude Code with validation, linting and type checking.
+High-performance web crawler for discovering and mapping website structure.
 
 **Features:**
 
-- Command validation before execution
-- Lint check after file modifications
-- Type check for TypeScript files
+- Sitemap discovery and parsing
+- Checkpoint/resume support
+- Rate limiting
+- HTML report generation
+
+**Usage:**
+
+```bash
+/crawler https://example.com
+```
+
+### security-hooks
+
+Security validation hooks with command validation, linting and type checking.
+
+**Features:**
+
+- PreToolUse: Blocks dangerous commands (rm -rf, sudo, etc.)
+- PostToolUse: Automatic Biome linting on JS/TS files
+- PostToolUse: TypeScript type checking
 
 ## File Structure
 
@@ -49,42 +62,25 @@ serum-plugin/
 ├── .claude-plugin/
 │   └── marketplace.json
 ├── plugins/
-│   └── serum-plugin/
+│   ├── crawler/
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── commands/
+│   │   │   └── crawler.md
+│   │   ├── scripts/
+│   │   └── README.md
+│   └── security-hooks/
 │       ├── .claude-plugin/
 │       │   └── plugin.json
-│       ├── commands/
-│       │   └── crawler.md
-│       ├── agents/
-│       │   └── serum-agent.md
 │       ├── hooks/
 │       │   └── hooks.json
-│       └── scripts/
-│           ├── validate-commands.js
-│           ├── lint-check.js
-│           └── type-check.js
+│       ├── scripts/
+│       │   ├── validate-commands.js
+│       │   ├── lint-check.js
+│       │   └── type-check.js
+│       └── README.md
 └── README.md
 ```
-
-## Components
-
-### Commands
-
-| Command | Description |
-|---------|-------------|
-| `/crawler` | Web crawler command |
-
-### Agents
-
-| Agent | Description |
-|-------|-------------|
-| `serum-agent` | Specialized agent for serum plugin operations |
-
-### Hooks
-
-| Event | Description |
-|-------|-------------|
-| `PreToolUse` | Validates commands before execution |
-| `PostToolUse` | Lint and type check after file modifications |
 
 ## Development
 
@@ -98,6 +94,7 @@ plugins/my-new-plugin/
 │   └── plugin.json
 ├── commands/
 ├── agents/
+├── hooks/
 └── README.md
 ```
 

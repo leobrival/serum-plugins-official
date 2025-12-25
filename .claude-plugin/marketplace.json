@@ -2,22 +2,33 @@
 	"$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
 	"name": "serum-plugins-official",
 	"version": "1.0.0",
-	"description": "Official Serum plugins for Claude Code including validation, linting and development tools",
+	"description": "Official Serum plugins for Claude Code - modular tools for crawling, security, and development workflows",
 	"owner": {
 		"name": "Leo Brival",
 		"email": "leo.brival@gmail.com"
 	},
 	"plugins": [
 		{
-			"name": "serum-plugin",
-			"description": "Serum plugin for Claude Code with validation, linting and type checking",
+			"name": "crawler",
+			"description": "High-performance web crawler for discovering and mapping website structure",
 			"version": "1.0.0",
 			"author": {
 				"name": "Leo Brival",
 				"email": "leo.brival@gmail.com"
 			},
-			"source": "./plugins/serum-plugin",
-			"category": "development"
+			"source": "./plugins/crawler",
+			"category": "productivity"
+		},
+		{
+			"name": "security-hooks",
+			"description": "Security validation hooks with command validation, linting and type checking",
+			"version": "1.0.0",
+			"author": {
+				"name": "Leo Brival",
+				"email": "leo.brival@gmail.com"
+			},
+			"source": "./plugins/security-hooks",
+			"category": "security"
 		}
 	]
 }
