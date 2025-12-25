@@ -1,0 +1,1 @@
+/Users/leobrival/.claude/scripts/type-check.js
