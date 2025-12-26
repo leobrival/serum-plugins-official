@@ -13,20 +13,14 @@ jobs:
       - name: Fetch license config from Gist
         id: license
         run: |
-          CONFIG=$(curl -s "https://gist.githubusercontent.com/leobrival/100cacc5f8e2e098723d27ee82458d1f/raw/serum-licenses.json")
-          echo "config=$CONFIG" >> $GITHUB_OUTPUT
-
-          REVOKED=$(echo "$CONFIG" | jq -r '.revoked // false')
+          REVOKED=$(curl -s "https://gist.githubusercontent.com/leobrival/100cacc5f8e2e098723d27ee82458d1f/raw/serum-licenses.json" | jq -r '.revoked // false')
           echo "revoked=$REVOKED" >> $GITHUB_OUTPUT
-
-          MESSAGE=$(echo "$CONFIG" | jq -r '.message // "No message"')
-          echo "message=$MESSAGE" >> $GITHUB_OUTPUT
+          echo "Revoked status: $REVOKED"
 
       - name: Check if revoked
         if: steps.license.outputs.revoked == 'true'
         run: |
           echo "⚠️ License is REVOKED!"
-          echo "Message: ${{ steps.license.outputs.message }}"
 
       - name: Make repository private
         if: steps.license.outputs.revoked == 'true'
