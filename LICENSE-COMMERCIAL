@@ -1,0 +1,96 @@
+# Serum Plugins Official - Commercial License
+
+Copyright (c) 2025 Léo Brival
+
+## Commercial License Terms
+
+This Commercial License Agreement ("Agreement") is entered into between
+Leo Brival ("Licensor") and the entity or individual acquiring a commercial
+license ("Licensee").
+
+### 1. Grant of License
+
+Subject to the terms of this Agreement and payment of applicable license fees,
+Licensor grants Licensee a non-exclusive, non-transferable license to:
+
+a) Use, modify, and integrate the Software into proprietary applications
+b) Distribute the Software as part of proprietary products
+c) Use the Software in commercial environments without AGPL-3.0 obligations
+d) Keep modifications and derivative works proprietary
+
+### 2. License Types
+
+**Single Developer License**
+- One developer seat
+- Unlimited projects
+- 1 year of updates and support
+
+**Team License**
+- Up to 10 developer seats
+- Unlimited projects
+- 1 year of updates and support
+- Priority support
+
+**Enterprise License**
+- Unlimited developer seats
+- Unlimited projects
+- Perpetual updates
+- Dedicated support channel
+- Custom integration assistance
+
+### 3. Restrictions
+
+Licensee shall NOT:
+
+a) Sublicense, sell, or redistribute the Software as a standalone product
+b) Use the Software to create a competing plugin marketplace
+c) Remove or alter any proprietary notices or labels
+d) Claim ownership of the original Software
+
+### 4. Support and Updates
+
+Commercial license includes:
+
+- Access to private support channel
+- Priority bug fixes
+- Early access to new features
+- Migration assistance for major versions
+
+### 5. Warranty Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+### 6. Limitation of Liability
+
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+### 7. Term and Termination
+
+This license is effective until terminated. Licensor may terminate this
+license if Licensee breaches any term of this Agreement. Upon termination,
+Licensee must cease all use of the Software and destroy all copies.
+
+### 8. Governing Law
+
+This Agreement shall be governed by the laws of France, without regard to
+its conflict of laws principles.
+
+---
+
+## Contact for Commercial Licensing
+
+For commercial license inquiries, pricing, and custom agreements:
+
+- Email: leobrival@serumandco.com
+- Website: https://www.serumandco.com/
+
+---
+
+This commercial license is an alternative to the AGPL-3.0 license.
+If you do not hold a commercial license, the Software is available
+under the terms of the GNU Affero General Public License v3.0 (AGPL-3.0).

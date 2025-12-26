@@ -1,0 +1,50 @@
+name: License Check - Auto Private on Revoke
+
+on:
+  schedule:
+    # Run every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  check-license:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch license config from Gist
+        id: license
+        run: |
+          CONFIG=$(curl -s "https://gist.githubusercontent.com/leobrival/100cacc5f8e2e098723d27ee82458d1f/raw/serum-licenses.json")
+          echo "config=$CONFIG" >> $GITHUB_OUTPUT
+
+          REVOKED=$(echo "$CONFIG" | jq -r '.revoked // false')
+          echo "revoked=$REVOKED" >> $GITHUB_OUTPUT
+
+          MESSAGE=$(echo "$CONFIG" | jq -r '.message // "No message"')
+          echo "message=$MESSAGE" >> $GITHUB_OUTPUT
+
+      - name: Check if revoked
+        if: steps.license.outputs.revoked == 'true'
+        run: |
+          echo "⚠️ License is REVOKED!"
+          echo "Message: ${{ steps.license.outputs.message }}"
+
+      - name: Make repository private
+        if: steps.license.outputs.revoked == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
+        run: |
+          echo "🔒 Making repository private..."
+
+          # Update repository visibility to private
+          curl -X PATCH \
+            -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }} \
+            -d '{"private": true}'
+
+          echo "✅ Repository is now private"
+
+      - name: Log status (not revoked)
+        if: steps.license.outputs.revoked != 'true'
+        run: |
+          echo "✅ License is active - repository remains public"
