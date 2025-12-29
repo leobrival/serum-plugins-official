@@ -1,0 +1,14 @@
+#!/usr/bin/env bun
+
+/**
+ * check-images - Analyze image accessibility and optimization
+ * Executable wrapper for the html-checker plugin
+ */
+
+import { join } from "node:path";
+
+const scriptDir = import.meta.dir;
+const mainScript = join(scriptDir, "src", "check-images.ts");
+
+// Re-export by importing and running
+await import(mainScript);

@@ -1,0 +1,10 @@
+{
+	"name": "html-checker",
+	"version": "1.0.0",
+	"description": "HTML quality checker for SEO and accessibility - validates heading hierarchy (H1-H6) and link integrity (empty href, javascript:void, #)",
+	"author": {
+		"name": "Leo Brival",
+		"email": "leobrival@serumandco.com",
+		"url": "https://www.serumandco.com/"
+	}
+}

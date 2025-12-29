@@ -1,0 +1,14 @@
+#!/usr/bin/env bun
+
+/**
+ * check-a11y - Accessibility audit for WCAG 2.1 compliance
+ * Executable wrapper for the html-checker plugin
+ */
+
+import { join } from "node:path";
+
+const scriptDir = import.meta.dir;
+const mainScript = join(scriptDir, "src", "check-a11y.ts");
+
+// Re-export by importing and running
+await import(mainScript);

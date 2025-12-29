@@ -1,0 +1,30 @@
+{
+	"name": "html-checker",
+	"version": "1.0.0",
+	"description": "HTML quality checker for SEO and accessibility",
+	"type": "module",
+	"bin": {
+		"check-headings": "./check-headings",
+		"check-links": "./check-links",
+		"check-images": "./check-images",
+		"check-meta": "./check-meta",
+		"check-forms": "./check-forms",
+		"check-a11y": "./check-a11y",
+		"check-performance": "./check-performance"
+	},
+	"scripts": {
+		"check-headings": "bun src/check-headings.ts",
+		"check-links": "bun src/check-links.ts",
+		"check-images": "bun src/check-images.ts",
+		"check-meta": "bun src/check-meta.ts",
+		"check-forms": "bun src/check-forms.ts",
+		"check-a11y": "bun src/check-a11y.ts",
+		"check-performance": "bun src/check-performance.ts",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format --write ."
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.5"
+	}
+}

@@ -1,0 +1,14 @@
+#!/usr/bin/env bun
+
+/**
+ * check-links - Analyze links and buttons
+ * Executable wrapper for the html-checker plugin
+ */
+
+import { join } from "node:path";
+
+const scriptDir = import.meta.dir;
+const mainScript = join(scriptDir, "src", "check-links.ts");
+
+// Re-export by importing and running
+await import(mainScript);

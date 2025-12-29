@@ -1,0 +1,14 @@
+#!/usr/bin/env bun
+
+/**
+ * check-meta - Analyze meta tags for SEO and social sharing
+ * Executable wrapper for the html-checker plugin
+ */
+
+import { join } from "node:path";
+
+const scriptDir = import.meta.dir;
+const mainScript = join(scriptDir, "src", "check-meta.ts");
+
+// Re-export by importing and running
+await import(mainScript);
