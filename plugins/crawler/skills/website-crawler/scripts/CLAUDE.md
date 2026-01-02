@@ -5,8 +5,8 @@
 **IMPORTANT**: Quand vous modifiez ce projet, mettez à jour:
 1. ✅ **Ce fichier (CLAUDE.md)** - Architecture, specs, conventions
 2. ✅ **README.md** - Guide utilisateur, exemples
-3. ✅ **Commandes associées** - `/Users/leobrival/.claude/commands/utils/crawler.md`
-4. ✅ **Scripts Raycast** - `/Users/leobrival/.claude/scripts/raycast/crawl-website.sh`
+3. ✅ **Commandes associées** - `$HOME/.claude/commands/utils/crawler.md`
+4. ✅ **Scripts Raycast** - `$HOME/.claude/scripts/raycast/crawl-website.sh`
 
 ---
 
@@ -308,7 +308,7 @@ static isRaycastEnvironment(): boolean {
 
 ### Associated Script
 
-**File**: `/Users/leobrival/.claude/scripts/raycast/crawl-website.sh`
+**File**: `$HOME/.claude/scripts/raycast/crawl-website.sh`
 
 **Usage**:
 ```bash
@@ -327,7 +327,7 @@ bun src/index.ts "$URL" --depth "$DEPTH" --debug
 
 ## Claude Code Command
 
-**File**: `/Users/leobrival/.claude/commands/utils/crawler.md`
+**File**: `$HOME/.claude/commands/utils/crawler.md`
 
 **Usage**: `/crawler https://example.com`
 
@@ -476,8 +476,8 @@ When modifying the crawler:
 
 - [ ] Update this CLAUDE.md with architecture changes
 - [ ] Update README.md with user-facing changes
-- [ ] Update `/Users/leobrival/.claude/commands/utils/crawler.md` if CLI changes
-- [ ] Update `/Users/leobrival/.claude/scripts/raycast/crawl-website.sh` if needed
+- [ ] Update `$HOME/.claude/commands/utils/crawler.md` if CLI changes
+- [ ] Update `$HOME/.claude/scripts/raycast/crawl-website.sh` if needed
 - [ ] Recompile Go binary: `cd engine && go build -o crawler main.go`
 - [ ] Test with: `bun src/index.ts https://example.com --depth 1`
 - [ ] Verify HTML output is generated
@@ -488,11 +488,11 @@ When modifying the crawler:
 ## Related Files
 
 ### Scripts Raycast
-- `/Users/leobrival/.claude/scripts/raycast/crawl-website.sh`
+- `$HOME/.claude/scripts/raycast/crawl-website.sh`
 
 ### Commandes Claude Code
-- `/Users/leobrival/.claude/commands/utils/crawler.md`
-- `/Users/leobrival/.claude/commands/utils/audit.md` (uses crawler)
+- `$HOME/.claude/commands/utils/crawler.md`
+- `$HOME/.claude/commands/utils/audit.md` (uses crawler)
 
 ### Config Files
 - `config/default.json` - Default configuration
