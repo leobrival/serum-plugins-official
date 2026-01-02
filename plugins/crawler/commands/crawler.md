@@ -39,7 +39,7 @@ The crawler:
 2. Run the crawler:
 
    ```bash
-   cd /Users/leobrival/Developer/plugins/serum-plugin/scripts/crawler
+   cd $HOME/.claude/plugins/marketplaces/serum-plugins-official/plugins/crawler/scripts/crawler
    bun src/index.ts <url> --depth <depth> --workers <workers> --rate <rate> --output <output>
    ```
 
