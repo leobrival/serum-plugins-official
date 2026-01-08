@@ -130,3 +130,10 @@ Recommendations:
 <!-- Lazy load images -->
 <img src="photo.jpg" loading="lazy" width="800" height="600">
 ```
+
+## Related Files
+
+- **Command**: `plugins/html-checker/commands/check-performance.md`
+- **Scripts**: `plugins/html-checker/scripts/src/check-performance.ts`
+- **Check Images**: `plugins/html-checker/skills/check-images/`
+- **Check Meta**: `plugins/html-checker/skills/check-meta/`

@@ -92,3 +92,10 @@ Recommendations:
 - **Description**: 50-160 characters, compelling call-to-action
 - **Canonical**: Always specify to prevent duplicate content
 - **Open Graph**: Essential for social media sharing
+
+## Related Files
+
+- **Command**: `plugins/html-checker/commands/check-meta.md`
+- **Scripts**: `plugins/html-checker/scripts/src/check-meta.ts`
+- **Check Headings**: `plugins/html-checker/skills/check-headings/`
+- **Check Performance**: `plugins/html-checker/skills/check-performance/`

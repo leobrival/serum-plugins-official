@@ -96,3 +96,10 @@ Recommendations:
 - Use appropriate input types (email, tel, date, number)
 - Add autocomplete for common fields
 - Mark required fields with required attribute and visual indicator
+
+## Related Files
+
+- **Command**: `plugins/html-checker/commands/check-forms.md`
+- **Scripts**: `plugins/html-checker/scripts/src/check-forms.ts`
+- **Check A11y**: `plugins/html-checker/skills/check-a11y/`
+- **Check Links**: `plugins/html-checker/skills/check-links/`

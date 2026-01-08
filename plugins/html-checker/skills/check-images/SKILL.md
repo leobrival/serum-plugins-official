@@ -82,3 +82,10 @@ Recommendations:
 - Alt text helps search engines understand images
 - Improves image search rankings
 - Required for Google Images indexing
+
+## Related Files
+
+- **Command**: `plugins/html-checker/commands/check-images.md`
+- **Scripts**: `plugins/html-checker/scripts/src/check-images.ts`
+- **Check Links**: `plugins/html-checker/skills/check-links/`
+- **Check A11y**: `plugins/html-checker/skills/check-a11y/`

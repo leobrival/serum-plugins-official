@@ -7,6 +7,19 @@ description: High-performance web crawler for discovering and mapping website st
 
 High-performance web crawler with TypeScript/Bun frontend and Go backend for discovering and mapping website structure.
 
+## When to Use
+
+Use this skill when users ask to:
+- **Crawl a website** or "spider a site"
+- **Map site structure** or "discover all pages"
+- **Find all URLs** on a website
+- **Generate sitemap** or site report
+- **Analyze link relationships** between pages
+- **Audit website coverage** or completeness
+- **Extract page metadata** (titles, status codes)
+
+Keywords: crawl, spider, map, discover pages, site structure, sitemap, all URLs, website audit
+
 ## Quick Start
 
 Run the crawler from the scripts directory:
@@ -139,6 +152,7 @@ For detailed architecture, Go engine specifications, and code conventions, see [
 
 ## Related Files
 
-- **Scripts**: `~/.claude/scripts/crawler/`
-- **Raycast**: `~/.claude/scripts/raycast/crawl-website.sh`
-- **Profiles**: `~/.claude/scripts/crawler/config/profiles/`
+- **Command**: `plugins/crawler/commands/crawler.md`
+- **Reference**: `plugins/crawler/skills/website-crawler/reference.md`
+- **Scripts**: `plugins/crawler/skills/website-crawler/scripts/`
+- **Profiles**: `plugins/crawler/skills/website-crawler/scripts/config/profiles/`

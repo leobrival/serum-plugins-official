@@ -114,3 +114,11 @@ Recommendations:
 
 - 1.4.6: Contrast ratio 7:1
 - 2.4.9: Link purpose from link text alone
+
+## Related Files
+
+- **Command**: `plugins/html-checker/commands/check-a11y.md`
+- **Scripts**: `plugins/html-checker/scripts/src/check-a11y.ts`
+- **Check Forms**: `plugins/html-checker/skills/check-forms/`
+- **Check Images**: `plugins/html-checker/skills/check-images/`
+- **Check Links**: `plugins/html-checker/skills/check-links/`

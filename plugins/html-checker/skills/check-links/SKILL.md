@@ -161,5 +161,7 @@ Recommendations:
 
 ## Related Files
 
-- **Scripts**: `/plugins/html-checker/scripts/`
-- **Check Headings**: `/plugins/html-checker/skills/check-headings/`
+- **Command**: `plugins/html-checker/commands/check-links.md`
+- **Scripts**: `plugins/html-checker/scripts/src/check-links.ts`
+- **Check Headings**: `plugins/html-checker/skills/check-headings/`
+- **Check Images**: `plugins/html-checker/skills/check-images/`

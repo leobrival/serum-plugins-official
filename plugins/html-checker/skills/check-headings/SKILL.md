@@ -99,5 +99,7 @@ Hierarchy:
 
 ## Related Files
 
-- **Scripts**: `/plugins/html-checker/scripts/`
-- **Check Links**: `/plugins/html-checker/skills/check-links/`
+- **Command**: `plugins/html-checker/commands/check-headings.md`
+- **Scripts**: `plugins/html-checker/scripts/src/check-headings.ts`
+- **Check Links**: `plugins/html-checker/skills/check-links/`
+- **Check Meta**: `plugins/html-checker/skills/check-meta/`
