@@ -4,15 +4,17 @@ French accessibility standard (Référentiel Général d'Amélioration de l'Acce
 
 ## Overview
 
-- **Total criteria:** 106
+- **Total criteria:** 106 criteria with ~257 individual test cases
 - **Thematic groups:** 13
 - **Levels:** A (minimum), AA (recommended), AAA (enhanced)
-- **Base standard:** WCAG 2.1
+- **Base standard:** WCAG 2.1 (tests 50 WCAG 2.1 AA criteria with granular precision)
+- **Version:** 4.1.2 (April 2023 - current)
 - **Mandatory for:** French public sector websites
+- **Relationship to WCAG:** RGAA 4.1 compliance ensures WCAG 2.1 AA compliance
 
 ## 13 Thematic Groups
 
-### 1. Images (8 criteria)
+### 1. Images (9 criteria)
 
 Every image must have an appropriate alternative.
 

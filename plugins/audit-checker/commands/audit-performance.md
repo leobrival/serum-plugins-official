@@ -118,10 +118,11 @@ Parse Lighthouse JSON results for key metrics:
   - Needs Improvement: 2.5s - 4.0s
   - Poor: > 4.0s
 
-- **FID** (First Input Delay) / **INP** (Interaction to Next Paint)
-  - Good: ≤ 100ms / ≤ 200ms
-  - Needs Improvement: 100-300ms / 200-500ms
-  - Poor: > 300ms / > 500ms
+- **INP** (Interaction to Next Paint) [Replaces FID since March 12, 2024]
+  - Good: ≤ 200ms
+  - Needs Improvement: 200-500ms
+  - Poor: > 500ms
+  - Note: First Input Delay (FID) is deprecated and no longer used as a Core Web Vital
 
 - **CLS** (Cumulative Layout Shift)
   - Good: ≤ 0.1
@@ -131,7 +132,7 @@ Parse Lighthouse JSON results for key metrics:
 **Secondary Metrics**
 
 - **FCP** (First Contentful Paint): ≤ 1.8s (good)
-- **TTI** (Time to Interactive): ≤ 3.8s (good)
+- **TTI** (Time to Interactive): ≤ 3.8s (diagnostic only - removed from Lighthouse score)
 - **TBT** (Total Blocking Time): ≤ 200ms (good)
 - **Speed Index**: ≤ 3.4s (good)
 
@@ -215,6 +216,7 @@ Write Markdown report to `$REPORT_FILE`:
 - **Status:** ✅ Good / ⚠️ Needs Improvement / ❌ Poor
 - **Target:** ≤ 200ms
 - **Impact:** Responsiveness to user input
+- **Note:** INP replaced First Input Delay (FID) as a Core Web Vital on March 12, 2024. This audit uses the current INP standard.
 
 ### 📐 Cumulative Layout Shift (CLS)
 - **Value:** 0.XXX
