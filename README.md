@@ -21,6 +21,9 @@ Official Serum plugins for Claude Code - modular tools for crawling, security, a
 
 # Install media-tools (image/video processing)
 /plugin install media-tools@serum-plugins-official
+
+# Install audit-checker (multi-domain audits)
+/plugin install audit-checker@serum-plugins-official
 ```
 
 ### Verify installation
@@ -104,6 +107,60 @@ Smart image and video processing with **auto-detection** of single files or batc
 /gif video.mp4 --Duration 5 --Width 480
 ```
 
+### audit-checker
+
+Multi-domain audit suite for comprehensive web application analysis covering **accessibility, security, performance, and eco-design**.
+
+**4 Audit Domains:**
+
+1. **Accessibility (RGAA 4.1)** - French accessibility standards compliance
+2. **Security (OWASP Top 10)** - Vulnerability detection and code analysis
+3. **Performance (Core Web Vitals)** - Lighthouse metrics and optimization
+4. **Eco-Design** - Digital sustainability and carbon footprint
+
+**Features:**
+
+- **Slash Commands:** `/audit`, `/audit-a11y`, `/audit-security`, `/audit-performance`, `/audit-eco`
+- **Specialized Agents:** Expert agents for each audit domain
+- **Comprehensive Methodology:** Skill with detailed reference documentation
+- **3-Level Fallback:** CLI tools → Chrome DevTools MCP → Manual analysis
+- **Markdown Reports:** Structured reports with severity levels and actionable recommendations
+
+**Commands:**
+
+```bash
+# Complete multi-domain audit
+/audit https://example.com
+
+# Single domain audits
+/audit-a11y https://example.com              # Accessibility (RGAA 4.1)
+/audit-security ./project                    # Security (OWASP Top 10)
+/audit-performance https://example.com --device mobile
+/audit-eco https://example.com
+
+# With specialized agents
+# "Use the a11y-auditor agent to analyze this page"
+# "Use the security-auditor to review authentication flow"
+```
+
+**Report Format:**
+
+- **Severity Levels:** ERROR, WARNING, INFO, PASS
+- **Domain Scores:** 0-100 rating per audit domain
+- **Actionable Recommendations:** Prioritized fix suggestions with code examples
+- **Standards Compliance:** RGAA 4.1, WCAG 2.1, OWASP Top 10 2021, Core Web Vitals
+
+**Output Location:**
+
+```
+./audits/
+├── audit-{timestamp}.md           # Full multi-domain report
+├── a11y-{timestamp}.md            # Accessibility report
+├── security-{timestamp}.md        # Security report
+├── performance-{timestamp}.md     # Performance report
+└── eco-{timestamp}.md             # Eco-design report
+```
+
 ## File Structure
 
 ```
@@ -126,14 +183,37 @@ serum-plugins-official/
 │   │   ├── commands/
 │   │   ├── rules/             # 24 pre-configured security rules
 │   │   └── README.md
-│   └── media-tools/
+│   ├── media-tools/
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── commands/
+│   │   │   ├── media.md      # Universal processor
+│   │   │   ├── image.md      # Smart image processing
+│   │   │   ├── video.md      # Smart video processing
+│   │   │   └── gif.md        # GIF creation
+│   │   └── README.md
+│   └── audit-checker/
 │       ├── .claude-plugin/
 │       │   └── plugin.json
 │       ├── commands/
-│       │   ├── media.md      # Universal processor
-│       │   ├── image.md      # Smart image processing
-│       │   ├── video.md      # Smart video processing
-│       │   └── gif.md        # GIF creation
+│       │   ├── audit.md              # Multi-domain orchestrator
+│       │   ├── audit-a11y.md         # Accessibility audit
+│       │   ├── audit-security.md     # Security audit
+│       │   ├── audit-performance.md  # Performance audit
+│       │   └── audit-eco.md          # Eco-design audit
+│       ├── agents/
+│       │   ├── a11y-auditor.md       # Accessibility expert
+│       │   ├── security-auditor.md   # Security specialist
+│       │   ├── performance-auditor.md # Performance expert
+│       │   └── eco-auditor.md        # Eco-design specialist
+│       ├── skills/
+│       │   └── audit-methodology/
+│       │       ├── SKILL.md          # Audit methodology
+│       │       └── reference/
+│       │           ├── rgaa-criteria.md    # RGAA 4.1 reference
+│       │           ├── owasp-top10.md      # OWASP Top 10
+│       │           ├── cwv-metrics.md      # Core Web Vitals
+│       │           └── eco-checklist.md    # Eco-design checklist
 │       └── README.md
 └── README.md
 ```

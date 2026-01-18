@@ -1,49 +1,49 @@
 {
-	"$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-	"name": "serum-plugins-official",
-	"version": "1.0.0",
-	"description": "Official Serum plugins for Claude Code - modular tools for crawling, security, and development workflows",
-	"owner": {
-		"name": "Léo Brival",
-		"email": "leobrival@serumandco.com",
-		"url": "https://www.serumandco.com/"
-	},
-	"plugins": [
-		{
-			"name": "crawler",
-			"description": "High-performance web crawler for discovering and mapping website structure",
-			"version": "1.0.0",
-			"author": {
-				"name": "Léo Brival",
-				"email": "leobrival@serumandco.com",
-				"url": "https://www.serumandco.com/"
-			},
-			"source": "./plugins/crawler",
-			"category": "productivity"
-		},
-		{
-			"name": "hookify",
-			"description": "Enhanced hookify with 24 security rules - Bun runtime, no Python required.",
-			"version": "1.0.0",
-			"author": {
-				"name": "Léo Brival",
-				"email": "leobrival@serumandco.com",
-				"url": "https://www.serumandco.com/"
-			},
-			"source": "./plugins/hookify",
-			"category": "security"
-		},
-		{
-			"name": "media-tools",
-			"description": "Image and video manipulation tools using ImageMagick and FFmpeg",
-			"version": "1.0.0",
-			"author": {
-				"name": "Léo Brival",
-				"email": "leobrival@serumandco.com",
-				"url": "https://www.serumandco.com/"
-			},
-			"source": "./plugins/media-tools",
-			"category": "productivity"
-		}
-	]
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "serum-plugins-official",
+  "version": "1.0.0",
+  "description": "Official Serum plugins for Claude Code - modular tools for crawling, security, and development workflows",
+  "owner": {
+    "name": "Léo Brival",
+    "email": "leobrival@serumandco.com",
+    "url": "https://www.serumandco.com/"
+  },
+  "plugins": [
+    {
+      "name": "crawler",
+      "description": "High-performance web crawler for discovering and mapping website structure",
+      "version": "1.0.0",
+      "author": {
+        "name": "Léo Brival",
+        "email": "leobrival@serumandco.com",
+        "url": "https://www.serumandco.com/"
+      },
+      "source": "./plugins/crawler",
+      "category": "productivity"
+    },
+    {
+      "name": "media-tools",
+      "description": "Image and video manipulation tools using ImageMagick and FFmpeg",
+      "version": "1.0.0",
+      "author": {
+        "name": "Léo Brival",
+        "email": "leobrival@serumandco.com",
+        "url": "https://www.serumandco.com/"
+      },
+      "source": "./plugins/media-tools",
+      "category": "productivity"
+    },
+    {
+      "name": "audit-checker",
+      "description": "Multi-domain audit suite for web applications covering accessibility (RGAA 4.1), security (OWASP Top 10), performance (Core Web Vitals), and eco-design",
+      "version": "1.0.0",
+      "author": {
+        "name": "Léo Brival",
+        "email": "leobrival@serumandco.com",
+        "url": "https://www.serumandco.com/"
+      },
+      "source": "./plugins/audit-checker",
+      "category": "security"
+    }
+  ]
 }
