@@ -23,11 +23,15 @@ echo "Syncing .claude-plugin..."
 rm -rf "$PLUGIN_DIR/.claude-plugin"
 cp -r "$TEMP_DIR/rcrawler/.claude-plugin" "$PLUGIN_DIR/"
 
-# Sync skills/website-crawler (Rust code + SKILL.md)
-echo "Syncing skills/website-crawler..."
-rm -rf "$PLUGIN_DIR/skills/website-crawler"
+# Sync skills/web-crawler (Rust code + SKILL.md)
+# Source directory is "website-crawler", we rename to "web-crawler" for consistency
+echo "Syncing skills/web-crawler..."
+rm -rf "$PLUGIN_DIR/skills/web-crawler"
 mkdir -p "$PLUGIN_DIR/skills"
-cp -r "$TEMP_DIR/rcrawler/skills/website-crawler" "$PLUGIN_DIR/skills/"
+cp -r "$TEMP_DIR/rcrawler/skills/website-crawler" "$PLUGIN_DIR/skills/web-crawler"
+
+# Note: Source repo uses "web-crawler" in frontmatter which matches our directory name
+# No sed fix needed since names are now aligned
 
 # Remove any .git files from copied content
 find "$PLUGIN_DIR" -name ".git" -type f -delete
