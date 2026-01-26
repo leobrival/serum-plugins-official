@@ -30,8 +30,10 @@ rm -rf "$PLUGIN_DIR/skills/web-crawler"
 mkdir -p "$PLUGIN_DIR/skills"
 cp -r "$TEMP_DIR/rcrawler/skills/website-crawler" "$PLUGIN_DIR/skills/web-crawler"
 
-# Note: Source repo uses "web-crawler" in frontmatter which matches our directory name
-# No sed fix needed since names are now aligned
+# Fix SKILL.md frontmatter - remove unsupported fields (version, allowed-tools)
+# and ensure name matches directory
+sed -i '' '/^version:/d; /^allowed-tools:/,/^[^ -]/{ /^allowed-tools:/d; /^  -/d; }' "$PLUGIN_DIR/skills/web-crawler/SKILL.md"
+sed -i '' 's/^name: website-crawler$/name: web-crawler/' "$PLUGIN_DIR/skills/web-crawler/SKILL.md"
 
 # Remove any .git files from copied content
 find "$PLUGIN_DIR" -name ".git" -type f -delete
