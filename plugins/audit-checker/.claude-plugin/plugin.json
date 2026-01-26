@@ -1,5 +1,4 @@
 {
-	"$schema": "../../../schemas/plugin.schema.json",
 	"name": "audit-checker",
 	"version": "1.0.0",
 	"description": "Multi-domain audit suite for web applications covering accessibility (RGAA 4.1), security (OWASP), performance (Lighthouse/CWV), and eco-design. Provides specialized agents, slash commands, and comprehensive methodologies for thorough web auditing.",
